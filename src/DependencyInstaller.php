@@ -41,8 +41,8 @@ class DependencyInstaller
      * @param OutputInterface|null $output
      */
     public function __construct(
-        string $composerFile = null,
-        OutputInterface $output = null
+        ?string $composerFile = null,
+        ?OutputInterface $output = null
     ) {
         $composerFile     = $composerFile ?: Factory::getComposerFile();
         $composerJson     = new JsonFile($composerFile);
