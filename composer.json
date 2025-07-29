@@ -21,7 +21,7 @@
     "prefer-stable": true,
     "require": {
         "composer/composer": "^1.0 || ^2.0",
-        "php": "^7.0 || ^8.0"
+        "php": "^8.0"
     },
     "require-dev": {
         "kint-php/kint": "@stable",

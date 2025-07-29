@@ -19,20 +19,9 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class DependencyInstaller
 {
-    /**
-     * @var array
-     */
-    private $definition;
-
-    /**
-     * @var string
-     */
-    private $workingDir;
-
-    /**
-     * @var null|OutputInterface
-     */
-    private $output;
+    private array $definition;
+    private string $workingDir;
+    private ?OutputInterface $output;
 
     /**
      * Constructor.
@@ -60,7 +49,7 @@ class DependencyInstaller
      *
      * @return void
      */
-    public function installRepository(string $name, string $type, string $url)
+    public function installRepository(string $name, string $type, string $url): void
     {
         if (array_key_exists('repositories', $this->definition)
             && array_key_exists($name, $this->definition['repositories'])
@@ -111,7 +100,7 @@ class DependencyInstaller
         bool $dev = true,
         bool $updateDependencies = false,
         bool $allowOverrideVersion = true
-    ) {
+    ): void {
         $node = $dev ? 'require-dev' : 'require';
 
         if (array_key_exists($node, $this->definition)

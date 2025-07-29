@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## 2.0.0
+### Changed
+- DependencyInstaller constructor types are now nullable to resolve php 8.4 deprecation notice
+- Typed properties after dropping php 7.4 support
+
+### Removed
+- Remove php 7.x support
+
 ## 1.5.0
 ### Changed
 - Add support whether upstream projects should have versions replaced in composer.json if the version does not match.

@@ -94,9 +94,6 @@ class DependencyInstallerTest extends TestCase
         $this->assertEquals($url, $definition['repositories'][$name]['url']);
     }
 
-    /**
-     * @return array
-     */
     public static function repositoryProvider(): array
     {
         return [
@@ -114,7 +111,7 @@ class DependencyInstallerTest extends TestCase
         bool $dev,
         bool $updateDependencies,
         bool $allowOverrideVersion
-    ) {
+    ): void {
         $this->dependencyInstaller->installPackage($name, $version, $dev, $updateDependencies, $allowOverrideVersion);
 
         $jsonFile   = new JsonFile('composer.json');
@@ -139,7 +136,8 @@ class DependencyInstallerTest extends TestCase
      * @throws ParsingException
      * @throws Exception
      */
-    public function testOriginalPackageVersionCanBePreserved() {
+    public function testOriginalPackageVersionCanBePreserved(): void
+    {
         $this->dependencyInstaller->installPackage(
             'psr/link',
             '1.1.1',
@@ -172,7 +170,8 @@ class DependencyInstallerTest extends TestCase
     /**
      * @throws ParsingException|Exception
      */
-    public function testOriginalPackageVersionCanBeOverridden(): void {
+    public function testOriginalPackageVersionCanBeOverridden(): void
+    {
         // Install and validate base package availability
         $this->dependencyInstaller->installPackage(
             'psr/link',
